@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Starbucks Drinks</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            th, td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+
+            th {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Product List</h1>
+        <table>
+            <thead>
+                <td><strong>name_cn</strong></td>
+                <td><strong>name_en</strong></td>
+                <td><strong>capacity</strong></td>
+                <td><strong>價格</strong></td>
+                <td><strong>咖啡因含量 (毫克)</strong></td>
+                <td><strong>熱量 (大卡)</strong></td>
+                <td><strong>糖 (克)</strong></td>
+                <td></td>
+                <td></td>
+            </thead>
+
+            {% for row in rows %}
+            <tr>
+                <td>{{ row["name_cn"] }}</td>
+                <td>{{ row["name_en"] }}</td>
+                <td>{{ row["capacity"] }}</td>
+                <td>{{ row["價格"] }}</td>
+                <td>{{ row["咖啡因含量 (毫克)"] }}</td>
+                <td>{{ row["熱量(大卡)"] }}</td>
+                <td>{{ row["糖(公克)"] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div class="body-content">
+        <hr/>
+        <p><img src="{{url_for('static', filename='price_boxplot.png')}}"></p>
+        <p><img src="{{url_for('static', filename='middle_cup.png')}}" ></p>
+        <p><img src="{{url_for('static', filename='large_cup.png')}}" ></p>
+        <p><img src="{{url_for('static', filename='extra_large_cup.png')}}"></p>
+    </body>
+</html>
